@@ -58,6 +58,21 @@ class LinkedList {
     }
     return indexValue;
   }
+
+  // removes the last element from the list
+  pop() {
+    let value = this.head;
+    let preValue = null;
+    while (preValue === null) {
+      value = value.next;
+      if (value.next.next.next === null) {
+        preValue = this.tail = value.next;
+        this.length--;
+        value = value.next.next = null;
+        return this.head;
+      }
+    }
+  }
 }
 
 const linkedList = new LinkedList();
@@ -69,6 +84,6 @@ linkedList.append(20);
 linkedList.append(21);
 linkedList.prepend(6);
 linkedList.prepend(5);
-// linkedList.head = { value: 6, next: linkedList.head };
 console.log(linkedList);
 console.log(linkedList.at(7));
+console.log(linkedList.pop());
