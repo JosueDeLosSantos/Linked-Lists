@@ -73,6 +73,33 @@ class LinkedList {
       }
     }
   }
+
+  /* returns true if the passed in value is in the 
+  list and otherwise returns false. */
+  contains(v) {
+    let checker = this.head;
+    if (checker.value === v) {
+      return true;
+    } else {
+      while (checker.value !== v && checker.next !== null) {
+        checker = checker.next;
+        if (checker.value === v) return true;
+      }
+      return false;
+    }
+  }
+
+  /* returns the index of the node containing value, 
+  or null if not found. */
+  find(v) {
+    let checker = this.head;
+
+    for (let i = 1; i <= this.length; i++) {
+      if (checker.value === v) return i;
+      checker = checker.next;
+    }
+    return null;
+  }
 }
 
 const linkedList = new LinkedList();
@@ -85,5 +112,9 @@ linkedList.append(21);
 linkedList.prepend(6);
 linkedList.prepend(5);
 console.log(linkedList);
-console.log(linkedList.at(7));
+console.log(linkedList.at(7)); // {value: 21, next: null}
 console.log(linkedList.pop());
+console.log(linkedList.contains(20)); // true
+console.log(linkedList.headNode());
+console.log(linkedList.tailNode());
+console.log(linkedList.find(20)); // 6
