@@ -119,6 +119,16 @@ class LinkedList {
     const format = stringArr.replaceAll(",", " => ");
     return format;
   }
+
+  // inserts a new node with the provided value at the given index
+  insertAt(value, index) {
+    let indexValue = this.head;
+    for (let i = 1; i <= index - 1; i++) {
+      indexValue = indexValue.next;
+    }
+    indexValue.value = value;
+    return this;
+  }
 }
 
 const linkedList = new LinkedList();
@@ -139,3 +149,5 @@ console.log(linkedList.tailNode());
 console.log(linkedList.find(20)); // 6
 console.log(linkedList.toString());
 // 5 => 6 => 7 => 8 => true => 20 => 21 => null
+
+console.log(linkedList.insertAt(3, 2));
