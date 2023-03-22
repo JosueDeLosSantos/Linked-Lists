@@ -116,7 +116,7 @@ class LinkedList {
       }
     }
     const stringArr = arr.toString();
-    const format = stringArr.replaceAll(",", " => ");
+    const format = stringArr.replaceAll(",", " -> ");
     return format;
   }
 
