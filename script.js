@@ -133,7 +133,6 @@ class LinkedList {
   // removes the node at the given index
   removeAt(index) {
     let indexValue = this.head;
-    // let preValue = null;
 
     if (index <= 1) {
       this.head = indexValue = indexValue.next;
@@ -143,7 +142,6 @@ class LinkedList {
     index = index - 1;
     for (let i = 1; i <= this.length; i++) {
       if (i === index) {
-        // return indexValue.next.next;
         if (indexValue.next.next === null) {
           indexValue.next = null;
           this.length--;
@@ -179,8 +177,7 @@ console.log(linkedList.contains(20)); // true
 console.log(linkedList.headNode());
 console.log(linkedList.tailNode());
 console.log(linkedList.find(20)); // 6
-console.log(linkedList.toString());
-// 5 => 6 => 7 => 8 => true => 20 => 21 => null
+console.log(linkedList.toString()); // 5 => 6 => 7 => 8 => true => 20 => 21 => null
 
 console.log(linkedList.insertAt(3, 2)); // insert 3 at index 2
 console.log(linkedList.removeAt(5)); // removes index 5
