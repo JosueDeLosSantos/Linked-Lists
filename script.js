@@ -100,6 +100,25 @@ class LinkedList {
     }
     return null;
   }
+
+  // represents your LinkedList objects as strings
+  toString() {
+    let checker = this.head;
+    let arr = [];
+    for (let i = 1; i <= this.length - 1; i++) {
+      if (checker.next != null) {
+        arr.push(checker.value);
+        checker = checker.next;
+      }
+      if (checker.next === null) {
+        arr.push(checker.value);
+        arr.push(`${checker.next}`);
+      }
+    }
+    const stringArr = arr.toString();
+    const format = stringArr.replaceAll(",", " => ");
+    return format;
+  }
 }
 
 const linkedList = new LinkedList();
@@ -113,8 +132,10 @@ linkedList.prepend(6);
 linkedList.prepend(5);
 console.log(linkedList);
 console.log(linkedList.at(7)); // {value: 21, next: null}
-console.log(linkedList.pop());
+// console.log(linkedList.pop());
 console.log(linkedList.contains(20)); // true
 console.log(linkedList.headNode());
 console.log(linkedList.tailNode());
 console.log(linkedList.find(20)); // 6
+console.log(linkedList.toString());
+// 5 => 6 => 7 => 8 => true => 20 => 21 => null
